@@ -1,0 +1,78 @@
+<header class="fixed top-0 left-0 w-full backdrop-blur-md z-50 transition-all duration-300 text-black dark:text-white"
+  [ngClass]="{
+    'bg-white shadow-md dark:bg-zinc-900': isScrolled,
+    'bg-white/80 shadow-sm dark:bg-zinc-900/80': !isScrolled
+  }">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+
+    <!-- Logo -->
+    <a routerLink="/" class="text-2xl font-bold tracking-wide">
+      Glift
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-8 text-gray-700 dark:text-gray-200 font-medium">
+
+      <a routerLink="/" class="relative group">
+        Home
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-[2px] bg-black dark:bg-white transition-all duration-300 left-1/2 -translate-x-1/2 group-hover:w-full"></span>
+      </a>
+
+      <a class="relative group">
+        Shop
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-[2px] bg-black dark:bg-white transition-all duration-300 left-1/2 -translate-x-1/2 group-hover:w-full"></span>
+      </a>
+
+      <a class="relative group">
+        About
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-[2px] bg-black dark:bg-white transition-all duration-300 left-1/2 -translate-x-1/2 group-hover:w-full"></span>
+      </a>
+
+      <a class="relative group">
+        Contact
+        <span
+          class="absolute left-0 -bottom-1 w-0 h-[2px] bg-black dark:bg-white transition-all duration-300 left-1/2 -translate-x-1/2 group-hover:w-full"></span>
+      </a>
+
+    </nav>
+
+
+    <!-- Right Section -->
+    <div class="flex items-center gap-4">
+
+      <!-- Cart -->
+      <button class="relative">
+        🛒
+        <span class="absolute -top-2 -right-2 bg-purple-600 text-white text-xs px-2 rounded-full">
+          0
+        </span>
+      </button>
+
+      <button (click)="toggleTheme()" class="text-xl transition-transform duration-300 hover:rotate-12">
+
+        {{ isDark ? '☀️' : '🌙' }}
+
+      </button>
+
+      <!-- Mobile Hamburger -->
+      <button class="md:hidden text-2xl" (click)="toggleMenu()">
+        ☰
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isOpen"
+    class="md:hidden bg-white dark:bg-zinc-900 border-t dark:border-zinc-700 shadow-md px-6 py-4 space-y-4">
+
+    <a routerLink="/" class="block">Home</a>
+    <a class="block">Shop</a>
+    <a class="block">About</a>
+    <a class="block">Contact</a>
+
+  </div>
+</header>
